@@ -1,0 +1,19 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+ribbon:
+  #指建立连接所用的时间
+  #一般根据高并发时，连接服务所需时间设置最长连接等待时间
+  ConnectTimeout: 5000
+  #指建立连接后，从服务端读取到可用资源所用的时间
+  #一般要根据从连接到服务到响应数据所用时间设置最长等待时间，否则可能会出现超时错误
+  ReadTimeout: 5000
+#开启熔断，主启动也开启
+feign:
+  hystrix:
+    enabled: true
